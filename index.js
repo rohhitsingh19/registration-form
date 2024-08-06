@@ -38,13 +38,15 @@ app.post("/register", async (req, res) => {
       const registrationData = new Register({ name, email, password });
       await registrationData.save();
       res.redirect("/success");
-    } else {
+    } 
+    else {
       console.log("User already exists");
-      res.redirect("/error?message=User%20already%20exists");
+      res.redirect("/error");
     }
-  } catch (error) {
+  } 
+  catch (error) {
     console.log(error);
-    res.redirect("/error?message=An%20unexpected%20error%20occurred");
+    res.redirect("/error");
   }
 });
 
